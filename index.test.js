@@ -48,7 +48,12 @@ describe('[Exercise 4] Counter', () => {
     counter.countDown()
     expect(counter.countDown()).toBe(2)
   })
-  // test('[8] the count eventually reaches zero but does not go below zero', () => {})
+  test('[8] the count eventually reaches zero but does not go below zero', () => {
+    counter.countDown()
+    counter.countDown()
+    counter.countDown()
+    expect(counter.countDown()).toBe(0)
+  })
 })
 
 describe('[Exercise 5] Seasons', () => {
