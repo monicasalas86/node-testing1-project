@@ -139,6 +139,9 @@ class Car {
       this.tank = this.tank - distance / this.mpg
       return this.odometer
     }
+    this.odometer = this.odometer + drivingMiles
+    this.tank = 0
+    return this.odometer
   }
 
   /**
@@ -153,7 +156,13 @@ class Car {
    * focus.refuel(99) // returns 600 (tank only holds 20)
    */
   refuel(gallons) {
-    // ✨ implement
+    const gallonsInTank = this.tankSize - this.tank
+    if (gallons <= gallonsInTank) {
+      this.tank = this.tank + gallons
+    } else {
+      this.tank = this.tankSize
+    }
+    return this.tank * this.mpg
   }
 }
 
